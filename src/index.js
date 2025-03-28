@@ -1,4 +1,4 @@
-//1.Solicitar Datos al Usuario 
+
 import readline from 'readline';
 import fs from 'fs';
 import yargs from 'yargs';
@@ -38,7 +38,6 @@ const contenidoJSON = async () => {
 };
 
 
-//2.Guardar los Datos en un Archivo JSON
 
 
 const argv = yargs(hideBin(process.argv))
@@ -60,9 +59,15 @@ contenidoJSON().then((json) => {
     if (fs.existsSync(archivo)) {
         console.log(`El archivo ${archivo} existe.`);
         fs.writeFileSync(archivo, json); 
+
+        const leerArchivo=fs.readFileSync(archivo,'utf-8');
+        console.log(leerArchivo);
+
     } else {
         console.log(`El archivo ${archivo} no existe, se creara uno nuevo.`);
         fs.writeFileSync(archivo, json); 
+        const leerArchivo=fs.readFileSync(archivo,'utf-8');
+        console.log(leerArchivo);
     }
 }).catch((err) => {
     console.error('Error al crear el contenido JSON:', err);
@@ -73,4 +78,5 @@ contenidoJSON().then((json) => {
 // //3.LEER CONTENIDO
 // const leerArchivo=fs.readFileSync(`src/${nombreArchivo}.json`,'utf-8');
 // console.log(leerArchivo);
+
 
