@@ -75,8 +75,4 @@ contenidoJSON().then((json) => {
 
 
 
-// //3.LEER CONTENIDO
-// const leerArchivo=fs.readFileSync(`src/${nombreArchivo}.json`,'utf-8');
-// console.log(leerArchivo);
-
 
